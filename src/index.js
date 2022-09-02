@@ -3,11 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { CssBaseline } from '@mui/material';
+import { BrowserRouter } from 'react-router-dom';
+import { AppContextProvider } from './context/AppContext';
+import { CustomThemeProvider } from './context/ThemeContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>      
+      <CustomThemeProvider>
+        <AppContextProvider>
+            <CssBaseline/>
+            <App />
+        </AppContextProvider>
+      </CustomThemeProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
